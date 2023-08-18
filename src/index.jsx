@@ -4,7 +4,9 @@
 //import { render } from 'solid-js/web';
 
 // Lightning 3 renderer
-import Render from '@lightningjs/solid';
+// import Render from '@lightningjs/solid';
+import { render } from '@lightningjs/solid-lightning3';
+
 import { Router } from "@solidjs/router";
 
 import App from './App';
@@ -18,16 +20,12 @@ if (import.meta.env.DEV && !(app instanceof HTMLElement)) {
   );
 }
 
-// FIXME 
-// Currently the Lightning 3 solid renderer does not take a root element. This should be fixed.
-
-Render(() => { 
+render(() => { 
   return (
-  <Router>
-    <App />
-  </Router>)
-}, 
- {
+    <Router>
+      <App />
+    </Router>
+  )
+}, app, {
   debug: true
 });
-

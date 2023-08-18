@@ -1,12 +1,19 @@
-import styles from '../styles/Home.module.css';
+// import styles from '../styles/Home.module.css';
 
-export const Home = () => {
+const Home = () => {
     return (
-        <header style={styles.header}>
-        {/* <img src={logo} class={styles.logo} alt="logo" /> */}
-        <div style={styles.p}>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </div>
-      </header>
+      <view>
+          <div lng={{ x: 50, y:50, color:'yellow', h: 100, w: 100 }} 
+              onBlur={() => { console.log('beepboop blur')}}
+              onFocus={() => { console.log('beepboop focus')}}
+              autofocus
+            >
+            <p>Hello fucking world.</p>
+          </div>
+          <div  lng={{ x:200, y:50, color:'blue', h: 100, w: 100 }} />
+          <div  lng={{ x:350, y:50, color:'blue', h: 100, w: 100 }} />
+      </view>
     )
 }
+
+export default Home;
