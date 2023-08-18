@@ -23,7 +23,7 @@ As the `airL3` package will import stuff from a top level directory.
 ```bash
 $ git clone git@github.com:comcast-lightning/threadx.git
 $ git clone git@github.com:comcast-lightning/renderer.git
-$ git clone git@github.com:comcast-lightning/solid.git
+$ git clone git@github.com:comcast-lightning/solid-lightning3.git
 ```
 
 Build threadx:
@@ -45,9 +45,8 @@ $ npm run build
 Build the Lightning 3 Solid renderer
 
 ```bash
-$ cd ./solid
+$ cd ./solid-lightning3
 $ npm install
-$ npm run build
 ```
 
 ## Install this app
