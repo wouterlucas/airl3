@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@lightningjs/renderer": "file:../renderer",
-    "@lightningjs/solid": "file:../solid",
     "@lightningjs/solid-lightning3": "file:../solid-lightning3",
     "@solidjs/router": "^0.8.3",
     "babel-preset-solid": "^1.7.7",

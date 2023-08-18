@@ -1,15 +1,15 @@
-import { useFocusManager } from '@lightningjs/solid';
+
 import { Route, Routes } from "@solidjs/router";
 
 import Home from './pages/Home';
+import Banana from "./pages/Banana";
 
 const App = () => {
-  useFocusManager();
-
   return (
-    <view onLast={() => history.back()}>
+    <view id="container">
       <Routes>
         <Route path="/" component={Home} />
+        <Route path="/banana" component={Banana} />
       </Routes>
     </view>
   );
