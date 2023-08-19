@@ -50,6 +50,7 @@ const Home = () => {
                     setDivOneColor('blue');
                     divOne.animate({ y: 50}, { duration: 300 }).start();
                 }}
+                shader={{ name: 'RoundedRectangle', radius: 30 }}
                 autofocus
                 ref={divOne}
             >
