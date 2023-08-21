@@ -30,71 +30,64 @@ const Home = () => {
         const newDiv = divs[index];
         newDiv.focus();
     }
-        
+    
+    const select = (element) => {
+        const _an = element.animate({ y: 90}, { duration: 300 });
+        _an.start();
+        _an.waitUntilStopped().then( () => {
+            console.log('animation stopped');
+        });
+
+        element.color = 'yellow';
+    }
+
+    const deselect = (element) => {
+        const _an = element.animate({ y: 50}, { duration: 300 });
+        _an.start();
+        _an.waitUntilStopped().then( () => {
+            console.log('animation stopped');
+        });
+
+        element.color = 'blue';
+    }
+
+    const setColor = (color, element) => {
+        element.color = color;
+    }
 
     return (
-        <view id="home">
+        <view id="home"        
+            onLeft={() => move(-1)}
+            onRight={() => move(1)}>
+                
             <div x={50} y={50} color={divOneColor()} h={100} w={100}
-                onLeft={() => move(-1)}
-                onRight={() => move(1)}
-                onEnter={() => setDivOneColor('red')}
-                onFocus={() => { 
-                    setDivOneColor('yellow')
-                    const _an = divOne.animate({ y: 90}, { duration: 300 });
-                    _an.start();
-                    _an.waitUntilStopped().then( () => {
-                        console.log('animation stopped');
-                    });
-                }}
-                onBlur={() => {
-                    setDivOneColor('blue');
-                    divOne.animate({ y: 50}, { duration: 300 }).start();
-                }}
+                onEnter={() => setColor('red', divOne)}
+                onFocus={() => select(divOne)}
+                onBlur={() => deselect(divOne)}
                 shader={{ name: 'RoundedRectangle', radius: 30 }}
                 autofocus
                 ref={divOne}
             >
-                <p>Hello fucking world.</p>
             </div>
             <div id="bla" x={200} y={50} color={divTwoColor()} h={100} w={100}
-                onLeft={() => move(-1)}
-                onRight={() => move(1)}
-                onEnter={() => setDivTwoColor('red')}
-                onFocus={() => { 
-                    setDivTwoColor('yellow')
-                    divTwo.animate({ y: 90}, { duration: 300 }).start();
-                }}
-                onBlur={() => {
-                    setDivTwoColor('blue');
-                    divTwo.animate({ y: 50}, { duration: 300 }).start();
-                }}
+                onEnter={() => setColor('red', divTwo)}
+                onFocus={() => select(divTwo)}
+                onBlur={() => deselect(divTwo)}
+                shader={{ name: 'RoundedRectangle', radius: 30 }}
                 ref={divTwo} />
-    
+
             <div x={350} y={50} color={divThreeColor()} h={100} w={100} 
-                onLeft={() => move(-1)}
-                onRight={() => move(1)}
-                onEnter={() => setDivThreeColor('red')}
-                onFocus={() => { 
-                    setDivThreeColor('yellow')
-                    divThree.animate({ y: 90}, { duration: 300 }).start();
-                }}
-                onBlur={() => {
-                    setDivThreeColor('blue');
-                    divThree.animate({ y: 50}, { duration: 300 }).start();
-                }}
+                onEnter={() => setColor('red')}
+                onFocus={() => select(divThree)}
+                onBlur={() => deselect(divThree)}
+                shader={{ name: 'RoundedRectangle', radius: 30 }}
                 ref={divThree} />
 
             <img x={500} y={50} h={100} w={100}  
                 src="/assets/banana.png"
-                onLeft={() => move(-1)}
-                onRight={() => move(1)}
-                onFocus={() => { 
-                    bananaOne.animate({ y: 90}, { duration: 300 }).start();
-                }}
-                onBlur={() => {
-                    setDivTwoColor('blue');
-                    bananaOne.animate({ y: 50}, { duration: 300 }).start();
-                }}
+                onFocus={() => select(bananaOne)}
+                onBlur={() => deselect(bananaOne)}
+                shader={{ name: 'RoundedRectangle', radius: 30 }}
                 onEnter={() => navigate('/banana')}
                 ref={bananaOne}
             />
